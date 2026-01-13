@@ -1,4 +1,4 @@
-# Your startup name here
+# Naataanii Tsosie - Startup
 
 [My Notes](notes.md)
 
