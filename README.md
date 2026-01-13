@@ -1,4 +1,4 @@
-# Naataanii Tsosie - Startup
+# Naataanii Tsosie - Trade Ninja
 
 [My Notes](notes.md)
 
@@ -17,45 +17,41 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Stock trading is not just for bros. It's for ninjas too. Trade Ninja allows ninjas of all levels to learn and trade stocks in an effective, stealthy, and safe environment. Real-time data, educational resources, and a supportive community help ninjas master the art of stock trading without the risk. Whether you're a novice ninja or a seasoned pro, Trade Ninja equips you with the tools and knowledge to make informed trading decisions and grow your wealth silently and efficiently.
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](./Design.svg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
+![Trade Ninja Flow](./trade-ninja-flow.svg)
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Real-time stock data and trading capabilities
+- User-friendly interface with ninja-themed design
+- Buy and sell stocks with ease
+- Total valuation tracking
+- Transaction history for all trades
+- Educational resources tailored for all skill levels
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - HTML will be used to structure the content of the web application, including the layout of pages, forms for user input, and navigation elements.
+- **CSS** - CSS will be used to style the web application, customizing to the ninja theme.
+- **React** - React will be used to build the user interface, allowing for dynamic updates and a responsive experience.
+- **Service** - Be the layer between the frontend and the database, handling API requests and user authentication.
+- **DB/Login** - Track user data, including login credentials, portfolio information, and transaction history.
+- **WebSocket** - Enable real-time updates for stock prices and user portfolio changes. This will allow users to see live data without needing to refresh the page and allowing users to make informed trading decisions quickly.
 
 ## 🚀 AWS deliverable
 
