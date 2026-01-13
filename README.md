@@ -29,9 +29,9 @@ Stock trading is not just for bros. It's for ninjas too. Trade Ninja allows ninj
 
 ### Design
 
-![Design image](./Design.svg)
+![Design image](./design/design.svg)
 
-![Trade Ninja Flow](./trade-ninja-flow.svg)
+![Trade Ninja Flow](./design/tradeNinjaFlow.svg)
 
 ### Key features
 
