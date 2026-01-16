@@ -59,6 +59,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [x] **Server deployed and accessible with custom domain name** - [My server link](https://startup.tsosiebyu.org).
 
+I deployed the startup server to EC2 and set up a custom domain name using Route 53. The server is accessible at the provided link.
+
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
