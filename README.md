@@ -70,7 +70,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [ ] **Images** - I did not complete this part of the deliverable.
 - [x] **Login placeholder** - I added a login dialog on the home page.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - Input box and submit button for login. The clock in/out history page is data pulled from the database. Admin data is pulled from database.
 - [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
 ## 🚀 CSS deliverable
