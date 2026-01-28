@@ -61,9 +61,9 @@ I deployed the startup server to EC2 and set up a custom domain name using Route
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **HTML pages** - Four HTML pages that represent the ability to login, add, and view time.
+- [x] **HTML pages** - Give HTML pages that represent the ability to login, punch time, view history, and show help information.
 - [x] **Proper HTML element usage** - I used form, section, head, header, html, a, div, and other tags properly.
-- [x] **Links** - The login page automatically links to the punch page. Admin page links to the history page. A nav bar is present on every page.
+- [x] **Links** - The login page automatically links to the punch page. Admin page links to the history page. A nav bar is present on every page. Image links to index.html.
 - [x] **Text** - Descriptive text and a help page has been added. Users should easily be able to use the app.
 - [x] **3rd party API placeholder** - In the footer, a Chuck Norris joke will be retrieved from a 3rd party api. See: https://api.chucknorris.io/
 - [x] **Images** - The application logo is a png image that links to the home page!
