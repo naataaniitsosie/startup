@@ -71,7 +71,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [ ] **Images** - I did not complete this part of the deliverable.
 - [x] **Login placeholder** - I added a login dialog on the home page.
 - [x] **DB data placeholder** - Input box and submit button for login. The clock in/out history page is data pulled from the database. Admin data is pulled from database.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **WebSocket placeholder** - On the Admin Page, live updates to see "who is on the clock".
 
 ## 🚀 CSS deliverable
 
