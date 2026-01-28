@@ -31,8 +31,6 @@ Time tracking for small businesses should not be complicated. Time Ninja makes i
 
 ![Design image](./design/design.svg)
 
-![Trade Ninja Flow](./design/tradeNinjaFlow.svg)
-
 ### Key features
 
 - Real-time clock-in and clock-out for employees
@@ -66,9 +64,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **HTML pages** - Four HTML pages that represent the ability to login, add, and view time.
 - [x] **Proper HTML element usage** - I used form, section, head, header, html, a, div, and other tags properly.
 - [x] **Links** - The login page automatically links to the punch page. Admin page links to the history page. A nav bar is present on every page.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
+- [x] **Text** - Descriptive text and a help page has been added. Users should easily be able to use the app.
+- [x] **3rd party API placeholder** - In the footer, a Chuck Norris joke will be retrieved from a 3rd party api. See: https://api.chucknorris.io/
+- [x] **Images** - The application logo is a png image that links to the home page!
 - [x] **Login placeholder** - I added a login dialog on the home page.
 - [x] **DB data placeholder** - Input box and submit button for login. The clock in/out history page is data pulled from the database. Admin data is pulled from database.
 - [x] **WebSocket placeholder** - On the Admin Page, live updates to see "who is on the clock".
