@@ -1,8 +1,8 @@
-# Naataanii Tsosie - Trade Ninja
+# Naataanii Tsosie - Time Ninja
 
 [My Notes](notes.md)
 
-This application is a stock trading platform designed specifically for ninjas. It provides real-time stock data, trading capabilities, and educational resources to help ninjas of all skill levels master the art of stock trading.
+My application is a time tracking sheet for small business. Why over pay for expensive software when you can have a simple web app that does the same thing for a super low cost!
 
 > [!NOTE]
 > This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
@@ -25,7 +25,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Stock trading is not just for bros. It's for ninjas too. Trade Ninja allows ninjas of all levels to learn and trade stocks in an effective, stealthy, and safe environment. Real-time data, educational resources, and a supportive community help ninjas master the art of stock trading without the risk. Whether you're a novice ninja or a seasoned pro, Trade Ninja equips you with the tools and knowledge to make informed trading decisions and grow your wealth silently and efficiently.
+Time tracking for small businesses should not be complicated. Time Ninja makes it simple to track employee hours so you can focus on your business. With an easy-to-use interface, employees can clock in and out, and managers can review timesheets.
 
 ### Design
 
@@ -35,12 +35,10 @@ Stock trading is not just for bros. It's for ninjas too. Trade Ninja allows ninj
 
 ### Key features
 
-- Real-time stock data and trading capabilities
-- User-friendly interface with ninja-themed design
-- Buy and sell stocks with ease
-- Total valuation tracking
-- Transaction history for all trades
-- Educational resources tailored for all skill levels
+- Real-time clock-in and clock-out for employees
+- Manager dashboard for reviewing timesheets
+- Exportable reports for payroll processing
+- Time history tracking for employees
 
 ### Technologies
 
@@ -50,8 +48,8 @@ I am going to use the required technologies in the following ways.
 - **CSS** - CSS will be used to style the web application, customizing to the ninja theme.
 - **React** - React will be used to build the user interface, allowing for dynamic updates and a responsive experience.
 - **Service** - Be the layer between the frontend and the database, handling API requests and user authentication.
-- **DB/Login** - Track user data, including login credentials, portfolio information, and transaction history.
-- **WebSocket** - Enable real-time updates for stock prices and user portfolio changes. This will allow users to see live data without needing to refresh the page and allowing users to make informed trading decisions quickly.
+- **DB/Login** - Track user data, including login credentials, work hours, and work location.
+- **WebSocket** - Enable real-time updates to see "who is on the clock". This will allow users to see live data without needing to refresh the page and allowing managers to make informed work decisions quickly.
 
 ## 🚀 AWS deliverable
 
