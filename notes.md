@@ -99,3 +99,6 @@ Handling the toggling of the checkboxes was particularly interesting.
 ```
 ## Exam Notes
 If I had exam notes, they would go here.
+
+## Deploy Script
+./deployFiles.sh -k ~/.ssh/cs260-prod.pem -h tsosiebyu.org -s startup
