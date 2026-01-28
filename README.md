@@ -63,13 +63,13 @@ I deployed the startup server to EC2 and set up a custom domain name using Route
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Four HTML pages that represent the ability to login, add, and view time.
+- [x] **Proper HTML element usage** - I used form, section, head, header, html, a, div, and other tags properly.
+- [x] **Links** - The login page automatically links to the punch page. Admin page links to the history page. A nav bar is present on every page.
 - [ ] **Text** - I did not complete this part of the deliverable.
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
+- [x] **Login placeholder** - I added a login dialog on the home page.
 - [ ] **DB data placeholder** - I did not complete this part of the deliverable.
 - [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
