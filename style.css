@@ -5,10 +5,26 @@
 
 h1 {
   font-family: "NinjaNaruto";
-  font-size: 3rem;
+  /* font-size: 3rem; */
 }
 
 h2 {
   font-family: "NinjaNaruto";
-  font-size: 2rem;
+  /* font-size: 2rem; */
+}
+
+div {
+  /* font-family: "NinjaNaruto"; */
+}
+
+p {
+  /* font-family: "NinjaNaruto"; */
+}
+
+span {
+  /* font-family: "NinjaNaruto"; */
+}
+
+ul {
+  /* font-family: "NinjaNaruto"; */
 }

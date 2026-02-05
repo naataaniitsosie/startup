@@ -75,9 +75,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
+- [x] **Visually appealing colors and layout. No overflowing elements.** - The app uses flex box and works will all window sizes
 - [x] **Use of a CSS framework** - Using Tailwind CSS. Importe on every html file.
-- [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
+- [s] **All visual elements styled using CSS** - In particular, I used Tailwind CSS with classes on my HTML.
 - [x] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
 - [x] **Use of a imported font** - Impored "NinjaNaruto". Added files to server.
 - [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
