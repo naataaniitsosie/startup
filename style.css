@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "NinjaNaruto";
+  src: url("./fonts/njnaruto.ttf") format("truetype");
+}
+
+body {
+  font-family: "NinjaNaruto", sans-serif;
+}
