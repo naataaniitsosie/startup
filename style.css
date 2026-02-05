@@ -43,3 +43,8 @@ footer {
 .ninja-button {
   background-color: #8FB59A;
 }
+
+.ninja-button:hover {
+  background-color: #A3D9A5;
+  font-family: "NinjaNaruto";
+}
