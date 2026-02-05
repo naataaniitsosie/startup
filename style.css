@@ -22,18 +22,18 @@ footer a:hover {
 }
 
 header {
-  background-color: #1D3022;
   color: #E6E9E6;
+  background: linear-gradient(to bottom, #1D3022, #0B0F0C);
 }
 
 body {
-  background-color: #0B0F0C ;
+  background-color: #0B0F0C;
   color: #E6E9E6;
 }
 
 footer {
-  background-color: #0A0D0B ;
   color: #83898A;
+  background-color: #0B0F0C;
 }
 div {
   /* font-family: "NinjaNaruto"; */
