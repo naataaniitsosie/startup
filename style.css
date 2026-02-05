@@ -13,6 +13,10 @@ h2 {
   /* font-size: 2rem; */
 }
 
+nav a:hover {
+  font-family: "NinjaNaruto";
+}
+
 div {
   /* font-family: "NinjaNaruto"; */
 }

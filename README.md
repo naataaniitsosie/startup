@@ -77,10 +77,10 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [x] **Visually appealing colors and layout. No overflowing elements.** - The app uses flex box and works will all window sizes
 - [x] **Use of a CSS framework** - Using Tailwind CSS. Importe on every html file.
-- [s] **All visual elements styled using CSS** - In particular, I used Tailwind CSS with classes on my HTML.
+- [x] **All visual elements styled using CSS** - In particular, I used Tailwind CSS with classes on my HTML.
 - [x] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
 - [x] **Use of a imported font** - Impored "NinjaNaruto". Added files to server.
-- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
+- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - Element to apply "NinjaNaruto Font", <need more> and pseudo to highlight over nav hover.
 
 ## 🚀 React part 1: Routing deliverable
 
