@@ -3,6 +3,12 @@
   src: url("./fonts/njnaruto.ttf") format("truetype");
 }
 
-body {
-  font-family: "NinjaNaruto", sans-serif;
+h1 {
+  font-family: "NinjaNaruto";
+  font-size: 3rem;
+}
+
+h2 {
+  font-family: "NinjaNaruto";
+  font-size: 2rem;
 }
