@@ -17,6 +17,24 @@ nav a:hover {
   font-family: "NinjaNaruto";
 }
 
+footer a:hover {
+  font-family: "NinjaNaruto";
+}
+
+header {
+  background-color: #1D3022;
+  color: #E6E9E6;
+}
+
+body {
+  background-color: #0B0F0C ;
+  color: #E6E9E6;
+}
+
+footer {
+  background-color: #0A0D0B ;
+  color: #83898A;
+}
 div {
   /* font-family: "NinjaNaruto"; */
 }
