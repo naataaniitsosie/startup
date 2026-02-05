@@ -40,11 +40,24 @@ footer {
   font-family: "NinjaNaruto";
 }
 
-.ninja-button {
+button.ninja-button {
   background-color: #8FB59A;
 }
 
 .ninja-button:hover {
   background-color: #A3D9A5;
   font-family: "NinjaNaruto";
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+#footer-chuck-norris {
+  animation: pulse 2s linear infinite;
 }
