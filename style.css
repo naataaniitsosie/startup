@@ -35,18 +35,7 @@ footer {
   color: #83898A;
   background-color: #0B0F0C;
 }
-div {
-  /* font-family: "NinjaNaruto"; */
-}
 
-p {
-  /* font-family: "NinjaNaruto"; */
-}
-
-span {
-  /* font-family: "NinjaNaruto"; */
-}
-
-ul {
-  /* font-family: "NinjaNaruto"; */
+.ninja-naruto {
+  font-family: "NinjaNaruto";
 }
