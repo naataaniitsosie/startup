@@ -8,19 +8,19 @@ export function Admin() {
           <div className="text-2xl mb-2 ninja-naruto">Who is on the clock?</div>
           <ul className="flex flex-wrap gap-4">
               <li className="border-2 p-2 rounded-md">
-                  <div>Name: <a href="history.html">Bob, Jones</a></div>
+                  <div>Name: <a href="history.html" className="underline">Bob, Jones</a></div>
                   <div>Hours: 4 (live clock)</div>
               </li>
               <li className="border-2 p-2 rounded-md">   
-                  <div>Name: <a href="history.html">Jane, Doe</a></div>
+                  <div>Name: <a href="history.html" className="underline">Jane, Doe</a></div>
                   <div>Hours: 2 (live clock)</div>
               </li>
               <li className="border-2 p-2 rounded-md">
-                  <div>Name: <a href="history.html">Jim, Beam</a></div>
+                  <div>Name: <a href="history.html" className="underline">Jim, Beam</a></div>
                   <div>Hours: 1 (live clock)</div>
               </li>
               <li className="border-2 p-2 rounded-md">
-                  <div>Name: <a href="history.html">Ronald, McDonald</a></div>
+                  <div>Name: <a href="history.html" className="underline">Ronald, McDonald</a></div>
                   <div>Hours: 0 (live clock)</div>
               </li>
           </ul>
