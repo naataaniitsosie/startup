@@ -7,7 +7,7 @@ export function Help() {
       <section>
           <div className="text-2xl mb-2 ninja-naruto">How to use the app</div>
           <ul>
-              <li>Home Page - Login or create an account.</li>
+              <li>Login Page - Login or create an account.</li>
               <li>Punch Page - Clock in or out.</li>
               <li>History Page - View the history of clock in/out times.</li>
               <li>Admin Page - View the admin page. This displays the totals.</li>
