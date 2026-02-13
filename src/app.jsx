@@ -36,7 +36,7 @@ export default function App() {
             <footer className="m-5 mt-20 text-center">
                 <div><a className="underline" href="https://github.com/naataaniitsosie/startup">GitHub</a></div>
                 <div>Naataanii Tsosie - CS 260</div>
-                <div>Time Ninja - <span>Copyright 2026</span> </div>
+                <div>Time Ninja - <span>Copyright 2026</span></div>
                 <div id="footer-chuck-norris">Chuck Norris Joke provided by <a className="underline" href="https://api.chucknorris.io/">Chuck Norris API</a>: Some really funny joke will go here...</div>
             </footer>
         </div>
