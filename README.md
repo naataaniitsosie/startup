@@ -86,9 +86,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - The app uses vite to build the app.
+- [x] **Components** - All html files pages are now React components. Login, Punch, History, Admin, Help.
+- [x] **Router** - React router properly routes to each page.
 
 ## 🚀 React part 2: Reactivity deliverable
 
