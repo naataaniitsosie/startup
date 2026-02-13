@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Time Ninja</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Include Tailwind CSS framework -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <header class="flex flex-row justify-between items-center">
+            <div class="flex-0"><a href="/"><img src="logo.png" width="150" alt="Time Ninja Logo" /></a></div>
+            <nav class="flex flex-1 flex-row gap-4">
+                <div class="flex-1 text-center"><a href="/">Home</a></div>
+                <div class="flex-1 text-center"><a href="punch.html">Punch</a></div>
+                <div class="flex-1 text-center"><a href="history.html">History</a></div>
+                <div class="flex-1 text-center"><a href="admin.html">Admin</a></div>
+                <div class="flex-1 text-center"><a href="help.html">Help</a></div>
+            </nav>
+        </header>
+    
+        <main class="m-5 flex flex-col items-center">
+            <h2 class="text-4xl m-5">Welcome to Time Ninja</h2>
+            <form method="get" action="punch.html" class="flex flex-col items-center">
+              <div>
+                <div>Username</div>
+                <input type="text" class="text-black rounded-md p-2" placeholder="your@email.com"/>
+              </div>
+              <div class="mt-5">
+                <div>Password</div>
+                <input type="password" class="text-black rounded-md p-2" placeholder="password" />
+              </div>
+              <div class="flex flex-row gap-5 mt-9">
+                <button type="submit" class="ninja-button text-2xl p-2 rounded-md">Login</button>
+                <button type="submit" class="ninja-button text-2xl p-2 rounded-md">Create</button>
+              </div>
+            </form>
+          </main>
+    
+          <footer class="m-5 mt-20 text-center">
+            <div><a class="underline" href="https://github.com/naataaniitsosie/startup">GitHub</a></div>
+            <div>Naataanii Tsosie - CS 260</div>
+            <div>Time Ninja - <span>Copyright 2026</span> </div>
+            <div id="footer-chuck-norris">Chuck Norris Joke provided by <a class="underline" href="https://api.chucknorris.io/">Chuck Norris API</a>: Some really funny joke will go here...</div>
+          </footer>
+    </body>
+</html>
