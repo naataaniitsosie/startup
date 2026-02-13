@@ -4,7 +4,7 @@ export function Login() {
   return (
     <main className="m-5 flex flex-col items-center">
       <h2 className="text-4xl m-5">Welcome to Time Ninja</h2>
-      <form method="get" action="punch.html" className="flex flex-col items-center">
+      <form method="get" action="/punch" className="flex flex-col items-center">
         <div>
           <div>Username</div>
           <input type="text" className="text-black rounded-md p-2" placeholder="your@email.com"/>
