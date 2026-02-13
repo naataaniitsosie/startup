@@ -100,5 +100,8 @@ Handling the toggling of the checkboxes was particularly interesting.
 ## Exam Notes
 If I had exam notes, they would go here.
 
-## Deploy Script
+## Deploy Script (pre-React)
 ./deployFiles.sh -k ~/.ssh/cs260-prod.pem -h tsosiebyu.org -s startup
+
+## Deploy Script (React)
+./deployReact.sh -k ~/.ssh/cs260-prod.pem -h tsosiebyu.org -s startup

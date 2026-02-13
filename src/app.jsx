@@ -12,7 +12,7 @@ export default function App() {
   return (
     <BrowserRouter>
         <header className="flex flex-row justify-between items-center">
-            <div className="flex-0"><a href="/"><img src="logo.png" width="150" alt="Time Ninja Logo" /></a></div>
+            <div className="flex-0"><a href="/"><img src="/images/logo.png" width="150" alt="Time Ninja Logo" /></a></div>
             <nav className="flex flex-1 flex-row gap-4">
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/">Login</NavLink></div>
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/punch">Punch</NavLink></div>
