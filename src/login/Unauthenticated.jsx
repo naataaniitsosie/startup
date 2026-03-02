@@ -17,7 +17,7 @@ export function Unauthenticated(props) {
     }
 
     return (
-      <div className="flex flex-col items-center">
+      <>
         <div>
           <div>Username</div>
           <input type="text" className="text-black rounded-md p-2" placeholder="your@email.com" onChange={e => setUserName(e.target.value)}/>
@@ -44,6 +44,6 @@ export function Unauthenticated(props) {
             Create
           </button>
         </div>
-      </div>
+      </>
     )
 }
