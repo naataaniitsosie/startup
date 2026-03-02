@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export function Admin() {
+  
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+        // poll every 5 seconds to get the current punch status (websockets)
+        const currentlyOnTheClock = [{
+            name: "Bob, Jones",
+            hours: 4 // live clock updates, will accumiate as time goes on
+        }, {
+            name: "Jane, Doe",
+            hours: 2 // live clock updates, will accumiate as time goes on
+        }, {
+            name: "Jim, Beam",
+            hours: 1 // live clock updates, will accumiate as time goes on
+        }, {
+            name: "Ronald, McDonald",
+            hours: 0 // live clock updates, will accumiate as time goes on
+        }];
+        console.log("Currently on the clock:", currentlyOnTheClock);        
+    }, 5000);
+
+    return () => {
+        clearInterval(intervalId)
+    }
+  }, [])
+
   return (
     <main className="m-5 space-y-5">
       <h2 className="text-4xl m-5 text-center">Admin Tools</h2>

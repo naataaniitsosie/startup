@@ -26,7 +26,10 @@ export default function App() {
     }
 
     getJoke();
-    setInterval(getJoke, 30000);
+    const intervalId = setInterval(getJoke, 30000);
+    return () => {
+        clearInterval(intervalId)
+    }
   }, []);
 
 
