@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './app.css';
 
@@ -16,6 +16,14 @@ const MOCK_CHUCK_NORRIS_JOKES = [
 
 export default function App() {
   const [chuckNorrisJoke, setChuckNorrisJoke] = React.useState("Loading chuck norris joke...");
+
+  useEffect(() => {
+    // MOCKED BACKEND CALL TO GET A CHUCK NORRIS JOKE
+    const i = Math.random() * MOCK_CHUCK_NORRIS_JOKES.length;
+    const index = Math.floor(i);
+    setChuckNorrisJoke(MOCK_CHUCK_NORRIS_JOKES[index].value);
+  }, []);
+
 
   return (
     <BrowserRouter>
@@ -41,7 +49,7 @@ export default function App() {
             <div><a className="underline" href="https://github.com/naataaniitsosie/startup">GitHub</a></div>
             <div>Naataanii Tsosie - CS 260</div>
             <div>Time Ninja - <span>Copyright 2026</span></div>
-            <div id="footer-chuck-norris">Chuck Norris Joke provided by <a className="underline" href="https://api.chucknorris.io/">Chuck Norris API</a>: Some really funny joke will go here...</div>
+            <div id="footer-chuck-norris">Chuck Norris Joke provided by <a className="underline" href="https://api.chucknorris.io/">Chuck Norris API</a>: {chuckNorrisJoke}</div>
         </footer>
     </BrowserRouter>
   )
