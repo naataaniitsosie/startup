@@ -18,10 +18,12 @@ export default function App() {
   const [chuckNorrisJoke, setChuckNorrisJoke] = React.useState("Loading chuck norris joke...");
 
   useEffect(() => {
-    // MOCKED BACKEND CALL TO GET A CHUCK NORRIS JOKE
-    const i = Math.random() * MOCK_CHUCK_NORRIS_JOKES.length;
-    const index = Math.floor(i);
-    setChuckNorrisJoke(MOCK_CHUCK_NORRIS_JOKES[index].value);
+    setInterval(() => {
+      // MOCKED BACKEND CALL TO GET A CHUCK NORRIS JOKE
+      const i = Math.random() * MOCK_CHUCK_NORRIS_JOKES.length;
+      const index = Math.floor(i);
+      setChuckNorrisJoke(MOCK_CHUCK_NORRIS_JOKES[index].value);
+    }, 30000);
   }, []);
 
 
