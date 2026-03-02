@@ -1,4 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+const MOCK_HISTORY = [{
+    name: "Jason Borne",
+    date: "Jan 28, 2026",
+    location: "40.2518° N, 111.6493° W",
+    in: "9:00 AM",
+    out: "-",
+    dayTotal: "(live clock)",
+    periodTotal: "-"
+}, {
+    name: "Jason Borne",
+    date: "Jan 27, 2026",
+    location: "40.2518° N, 111.6493° W",
+    in: "9:00 AM",
+    out: "5:00 PM",
+    dayTotal: "8 hours",
+    periodTotal: "32 hours"
+}, {
+    name: "Employee 67",
+    date: "Jan 26, 2026",
+    location: "40.2518° N, 111.6493° W",
+    in: "9:00 AM",
+    out: "5:00 PM",
+    dayTotal: "8 hours",
+    periodTotal: "24 hours"
+}, {
+    name: "Ronald McDonald",
+    date: "Jan 25, 2026",
+    location: "40.2518° N, 111.6493° W",
+    in: "9:00 AM",
+    out: "5:00 PM",
+    dayTotal: "8 hours",
+    periodTotal: "16 hours"
+}, {
+    name: "Ronald McDonald",
+    date: "Jan 24, 2026",
+    location: "40.2518° N, 111.6493° W",
+    in: "9:00 AM",
+    out: "5:00 PM",
+    dayTotal: "8 hours",
+    periodTotal: "8 hours"
+}];
 
 export function History() {
   return (
@@ -6,51 +48,17 @@ export function History() {
       <h2 className="text-4xl m-5 text-center">History Log</h2>
       <section>
           <ul className="flex flex-wrap gap-4 flex-col">
-              <li className="border-2 p-2 rounded-md">
-                  <div>Jason Borne</div>
-                  <div>Date: Jan 28, 2026</div>
-                  <div>Location: 40.2518° N, 111.6493° W</div>
-                  <div>In: 9:00 AM</div>
-                  <div>Out: - </div>
-                  <div>Day Total: (live clock) </div>
-                  <div>Period Total: - </div>
+            {MOCK_HISTORY.map((entry) => (
+              <li key={entry.name + entry.date} className="border-2 p-2 rounded-md">
+                  <div>{entry.name}</div>
+                  <div>Date: {entry.date}</div>
+                  <div>Location: {entry.location}</div>
+                  <div>In: {entry.in}</div>
+                  <div>Out: {entry.out}</div>
+                  <div>Day Total: {entry.dayTotal}</div>
+                  <div>Period Total: {entry.periodTotal}</div>
               </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Jason Borne</div>
-                  <div>Date: Jan 27, 2026</div>
-                  <div>Location: 40.2518° N, 111.6493° W</div>
-                  <div>In: 9:00 AM</div>
-                  <div>Out: 5:00 PM</div>
-                  <div>Day Total: 8 hours</div>
-                  <div>Period Total: 32 hours</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Employee 67</div>
-                  <div>Date: Jan 26, 2026</div>
-                  <div>Location: 40.2518° N, 111.6493° W</div>
-                  <div>In: 9:00 AM</div>
-                  <div>Out: 5:00 PM</div>
-                  <div>Day Total: 8 hours</div>
-                  <div>Period Total: 24 hours</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Ronald McDonald</div>
-                  <div>Date: Jan 25, 2026</div>
-                  <div>Location: 40.2518° N, 111.6493° W</div>
-                  <div>In: 9:00 AM</div>
-                  <div>Out: 5:00 PM</div>
-                  <div>Day Total: 8 hours</div>
-                  <div>Period Total: 16 hours</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Ronald McDonald</div>
-                  <div>Date: Jan 24, 2026</div>
-                  <div>Location: 40.2518° N, 111.6493° W</div>
-                  <div>In: 9:00 AM</div>
-                  <div>Out: 5:00 PM</div>
-                  <div>Day Total: 8 hours</div>
-                  <div>Period Total: 8 hours</div>
-              </li>
+            ))}
           </ul>
         </section>
     </main>
