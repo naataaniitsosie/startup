@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react';
 
 export function Admin() {
+  const [currentlyOnTheClock, setCurrentlyOnTheClock] = useState([]);
   
   useEffect(() => {
+    const MOCK_ON_THE_CLOCK = [{
+        name: "Bob, Jones",
+        hours: 4 // live clock updates, will accumiate as time goes on
+    }, {
+        name: "Jane, Doe",
+        hours: 2 // live clock updates, will accumiate as time goes on
+    }, {
+        name: "Jim, Beam",
+        hours: 1 // live clock updates, will accumiate as time goes on
+    }, {
+        name: "Ronald, McDonald",
+        hours: 0 // live clock updates, will accumiate as time goes on
+    }];
+
+    setCurrentlyOnTheClock(MOCK_ON_THE_CLOCK);
     const intervalId = setInterval(() => {
-        // poll every 5 seconds to get the current punch status (websockets)
-        const currentlyOnTheClock = [{
-            name: "Bob, Jones",
-            hours: 4 // live clock updates, will accumiate as time goes on
-        }, {
-            name: "Jane, Doe",
-            hours: 2 // live clock updates, will accumiate as time goes on
-        }, {
-            name: "Jim, Beam",
-            hours: 1 // live clock updates, will accumiate as time goes on
-        }, {
-            name: "Ronald, McDonald",
-            hours: 0 // live clock updates, will accumiate as time goes on
-        }];
-        console.log("Currently on the clock:", currentlyOnTheClock);        
-    }, 5000);
+        setCurrentlyOnTheClock(value => {
+            // rotate to mock live data updates
+            let shuffled = [...value];
+            shuffled.push(value[0]);
+            shuffled.shift();
+            return shuffled;
+        });
+    }, 1000);
 
     return () => {
         clearInterval(intervalId)
@@ -32,22 +40,12 @@ export function Admin() {
       <section>
           <div className="text-2xl mb-2 ninja-naruto">Who is on the clock?</div>
           <ul className="flex flex-wrap gap-4">
-              <li className="border-2 p-2 rounded-md">
-                  <div>Name: <a href="history" className="underline">Bob, Jones</a></div>
-                  <div>Hours: 4 (live clock)</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">   
-                  <div>Name: <a href="history" className="underline">Jane, Doe</a></div>
-                  <div>Hours: 2 (live clock)</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Name: <a href="history" className="underline">Jim, Beam</a></div>
-                  <div>Hours: 1 (live clock)</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Name: <a href="history" className="underline">Ronald, McDonald</a></div>
-                  <div>Hours: 0 (live clock)</div>
-              </li>
+              {currentlyOnTheClock.map((employee, i) => (
+                  <li key={i} className="border-2 p-2 rounded-md">
+                      <div>Name: <a href="history" className="underline">{employee.name}</a></div>
+                      <div>Hours: {employee.hours} (live clock)</div>
+                  </li>
+              ))}
           </ul>
       </section>
       <section>
