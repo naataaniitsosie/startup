@@ -12,13 +12,6 @@ export function Authenticated({ userName, onLogout }) {
       <button className="ninja-button mt-4 text-2xl p-2 rounded-md" onClick={() => logout()}>
         Log Out
       </button>
-      {/*
-      <Button variant='primary' onClick={() => navigate('/play')}>
-        Play
-      </Button>
-      <Button variant='secondary' onClick={() => logout()}>
-        Logout
-      </Button> */}
     </>
   );
 }
