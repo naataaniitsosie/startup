@@ -18,8 +18,7 @@ const MOCK_CHUCK_NORRIS_JOKES = [
 
 export default function App() {
   const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
-  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
-  const [authState, setAuthState] = useState(currentAuthState);
+  const [authState, setAuthState] = useState(userName ? AuthState.Authenticated : AuthState.Unauthenticated);
   const [chuckNorrisJoke, setChuckNorrisJoke] = useState("Loading chuck norris joke...");
 
   useEffect(() => {
@@ -51,7 +50,17 @@ export default function App() {
             </nav>}
         </header>
         <Routes>
-            <Route path="/" element={<Login />} />
+            <Route
+                path="/"
+                element={<Login
+                    userName={userName}
+                    authState={authState}
+                    onAuthChange={(userName, authState) => {
+                        setAuthState(authState);
+                        setUserName(userName);
+                    }}
+                />}
+            />
             <Route path="/punch" element={<Punch />} />
             <Route path="/history" element={<History />} />
             <Route path="/admin" element={<Admin />} />
