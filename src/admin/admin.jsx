@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 export function Admin() {
   const [currentlyOnTheClock, setCurrentlyOnTheClock] = useState([]);
+  const [employeeTotals, setEmployeeTotals] = useState([]);
   
   useEffect(() => {
     const MOCK_ON_THE_CLOCK = [{
@@ -34,6 +35,24 @@ export function Admin() {
     }
   }, [])
 
+  useEffect(() => {
+    const MOCK_EMPLOYEE_TOTALS = [{
+        name: "Employee 1",
+        periodTotal: 100,
+        ytdTotal: 1000,
+    }, {
+        name: "Employee 2",
+        periodTotal: 200,
+        ytdTotal: 2000,
+    }, {
+        name: "Employee 3",
+        periodTotal: 300,
+        ytdTotal: 3000,
+    }];
+
+    setEmployeeTotals(MOCK_EMPLOYEE_TOTALS);
+  }, []);
+
   return (
     <main className="m-5 space-y-5">
       <h2 className="text-4xl m-5 text-center">Admin Tools</h2>
@@ -51,21 +70,13 @@ export function Admin() {
       <section>
           <div className="text-2xl mb-2 ninja-naruto">Employee Totals</div>
           <ul className="flex flex-wrap gap-4">
-              <li className="border-2 p-2 rounded-md">
-                  <div>Name: Employee 1</div>
-                  <div>Period Total: 100 hours</div>
-                  <div>YTD Total: 1000 hours</div>
+            {employeeTotals.map((employee, i) => (
+              <li key={i} className="border-2 p-2 rounded-md">
+                <div>Name: {employee.name}</div>
+                <div>Period Total: {employee.periodTotal} hours</div>
+                <div>YTD Total: {employee.ytdTotal} hours</div>
               </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Name: Employee 2</div>
-                  <div>Period Total: 200 hours</div>
-                  <div>YTD Total: 2000 hours</div>
-              </li>
-              <li className="border-2 p-2 rounded-md">
-                  <div>Name: Employee 3</div>
-                  <div>Period Total: 300 hours</div>
-                  <div>YTD Total: 3000 hours</div>
-              </li>
+            ))}
           </ul>
         </section>
     </main>
