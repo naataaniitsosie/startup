@@ -8,7 +8,15 @@ import { History } from './history/history';
 import { Admin } from './admin/admin';
 import { Help } from './help/help';
 
+const MOCK_CHUCK_NORRIS_JOKES = [
+    {"categories":[],"created_at":"2020-01-05 13:42:21.455187","icon_url":"https://api.chucknorris.io/img/avatar/chuck-norris.png","id":"SLcmIDDlT2ObeWHBq8tMqQ","updated_at":"2020-01-05 13:42:21.455187","url":"https://api.chucknorris.io/jokes/SLcmIDDlT2ObeWHBq8tMqQ","value":"Hulk is strong, but Chuck Norris is STRONG."},
+    {"categories":["sport"],"created_at":"2020-01-05 13:42:19.576875","icon_url":"https://api.chucknorris.io/img/avatar/chuck-norris.png","id":"qyqtoof0t66xhmtmfjurwg","updated_at":"2020-01-05 13:42:19.576875","url":"https://api.chucknorris.io/jokes/qyqtoof0t66xhmtmfjurwg","value":"Chuck Norris has the greatest Poker-Face of all time. He won the 1983 World Series of Poker, despite holding only a Joker, a Get out of Jail Free Monopoloy card, a 2 of clubs, 7 of spades and a green #4 card from the game UNO."},
+    {"categories":["sport"],"created_at":"2020-01-05 13:42:19.576875","icon_url":"https://api.chucknorris.io/img/avatar/chuck-norris.png","id":"tvrzu4lzrn-b6q0tzaa-ba","updated_at":"2020-01-05 13:42:19.576875","url":"https://api.chucknorris.io/jokes/tvrzu4lzrn-b6q0tzaa-ba","value":"There are no steroids in baseball. Just players Chuck Norris has breathed on."},
+]
+
 export default function App() {
+  const [chuckNorrisJoke, setChuckNorrisJoke] = React.useState("Loading chuck norris joke...");
+
   return (
     <BrowserRouter>
         <header className="flex flex-row justify-between items-center">
