@@ -1,18 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-export function Authenticated(props) {
-  const navigate = useNavigate();
-
+export function Authenticated({ userName, onLogout }) {
   function logout() {
     localStorage.removeItem('userName');
-    props.onLogout();
+    onLogout();
   }
 
   return (
     <>
-      hi
-      {/* <div className='playerName'>{props.userName}</div>
+      <div>{userName}</div>
+      <button className="ninja-button mt-4 text-2xl p-2 rounded-md" onClick={() => logout()}>
+        Log Out
+      </button>
+      {/*
       <Button variant='primary' onClick={() => navigate('/play')}>
         Play
       </Button>
