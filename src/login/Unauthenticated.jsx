@@ -16,6 +16,7 @@ export function Unauthenticated(props) {
         console.log("User created")
     }
 
+    const isDisabled = !userName || !password
     return (
       <>
         <div>
@@ -28,18 +29,16 @@ export function Unauthenticated(props) {
         </div>
         <div className="flex flex-row gap-5 mt-9">
           <button
-            type="submit"
-            className="ninja-button text-2xl p-2 rounded-md"
+            className={`ninja-button text-2xl p-2 rounded-md ${isDisabled ? "disabled" : ""}`}
             onClick={() => loginUser()}
-            disabled={!userName || !password}
+            disabled={isDisabled}
           >
             Login
           </button>
           <button
-            type="submit"
-            className="ninja-button text-2xl p-2 rounded-md"
+            className={`ninja-button text-2xl p-2 rounded-md ${isDisabled ? "disabled" : ""}`}
             onClick={() => createUser()}
-            disabled={!userName || !password}
+            disabled={isDisabled}
           >
             Create
           </button>

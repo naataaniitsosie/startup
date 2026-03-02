@@ -49,6 +49,12 @@ button.ninja-button {
   font-family: "NinjaNaruto";
 }
 
+.ninja-button.disabled:hover {
+  background-color: inherit;
+  font-family: inherit;
+  cursor: not-allowed;
+}
+
 @keyframes pulse {
   from {
     transform: scale(1);
