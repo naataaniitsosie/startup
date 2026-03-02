@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './app.css';
 
@@ -8,6 +8,8 @@ import { History } from './history/history';
 import { Admin } from './admin/admin';
 import { Help } from './help/help';
 
+import { AuthState } from './login/authState';
+
 const MOCK_CHUCK_NORRIS_JOKES = [
     {"categories":[],"created_at":"2020-01-05 13:42:21.455187","icon_url":"https://api.chucknorris.io/img/avatar/chuck-norris.png","id":"SLcmIDDlT2ObeWHBq8tMqQ","updated_at":"2020-01-05 13:42:21.455187","url":"https://api.chucknorris.io/jokes/SLcmIDDlT2ObeWHBq8tMqQ","value":"Hulk is strong, but Chuck Norris is STRONG."},
     {"categories":["sport"],"created_at":"2020-01-05 13:42:19.576875","icon_url":"https://api.chucknorris.io/img/avatar/chuck-norris.png","id":"qyqtoof0t66xhmtmfjurwg","updated_at":"2020-01-05 13:42:19.576875","url":"https://api.chucknorris.io/jokes/qyqtoof0t66xhmtmfjurwg","value":"Chuck Norris has the greatest Poker-Face of all time. He won the 1983 World Series of Poker, despite holding only a Joker, a Get out of Jail Free Monopoloy card, a 2 of clubs, 7 of spades and a green #4 card from the game UNO."},
@@ -15,7 +17,10 @@ const MOCK_CHUCK_NORRIS_JOKES = [
 ]
 
 export default function App() {
-  const [chuckNorrisJoke, setChuckNorrisJoke] = React.useState("Loading chuck norris joke...");
+  const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = useState(currentAuthState);
+  const [chuckNorrisJoke, setChuckNorrisJoke] = useState("Loading chuck norris joke...");
 
   useEffect(() => {
     const getJoke = () => {
@@ -37,13 +42,13 @@ export default function App() {
     <BrowserRouter>
         <header className="flex flex-row justify-between items-center">
             <div className="flex-0"><a href="/"><img src="/images/logo.png" width="150" alt="Time Ninja Logo" /></a></div>
-            <nav className="flex flex-1 flex-row gap-4">
+            {authState === AuthState.Authenticated && <nav className="flex flex-1 flex-row gap-4">
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/">Login</NavLink></div>
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/punch">Punch</NavLink></div>
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/history">History</NavLink></div>
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/admin">Admin</NavLink></div>
                 <div className="flex-1 text-center"><NavLink className="nav-link" to="/help">Help</NavLink></div>
-            </nav>
+            </nav>}
         </header>
         <Routes>
             <Route path="/" element={<Login />} />
