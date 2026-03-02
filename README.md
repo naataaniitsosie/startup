@@ -94,8 +94,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [x] **Hooks** - Used useState and useEffect to handle punch status and time. `useEffect` is used to intialize the punch state.
+- [x] **All functionality implemented or mocked out** - All functionally is implemented and/or mocked out.
+- [x] **Hooks** - Used useState and useEffect to handle punch status and time. `useEffect` is used to intialize the punch state. useEffect is use to get mocked chuck norris jokes.
 
 ## 🚀 Service deliverable
 
