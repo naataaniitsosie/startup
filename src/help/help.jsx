@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export function Help() {
+  const [helpMessages, setHelpMessages] = useState([]);
+
+  useEffect(() => {
+    const MOCK_HELP_MESSAGES = [
+      "Login Page - Login or create an account.",
+      "Punch Page - Clock in or out.",
+      "History Page - View the history of clock in/out times.",
+      "Admin Page - View the admin page. This displays the totals.",
+      "Help Page - View the help page.",
+    ]
+    // mock fetching help messages
+    setHelpMessages(MOCK_HELP_MESSAGES);
+  }, [])
+
   return (
     <main className="m-5 space-y-5">
       <h2 className="text-4xl text-center">Help Center</h2>
       <section>
           <div className="text-2xl mb-2 ninja-naruto">How to use the app</div>
           <ul>
-              <li>Login Page - Login or create an account.</li>
-              <li>Punch Page - Clock in or out.</li>
-              <li>History Page - View the history of clock in/out times.</li>
-              <li>Admin Page - View the admin page. This displays the totals.</li>
-              <li>Help Page - View the help page.</li>
+              {helpMessages.map((m, i) => (
+                <li key={i}>{m}</li>
+              ))}
           </ul>
       </section>
       <section>
