@@ -92,6 +92,18 @@ apiRouter.put('/punch', verifyAuth, (req, res) => {
   res.status(200).send({ success: true });
 })
 
+// GetLatestPunch
+apiRouter.get('/punch/latest', verifyAuth, (req, res) => {
+  const { user } = req
+  const { email } = user
+
+  if (punches[email] && punches[email].length > 0) {
+    res.status(200).send({ latestPunch: punches[email].reverse()[0] });
+  }
+
+  res.status(404).send("not found");
+})
+
 // GetScores
 apiRouter.get('/scores', verifyAuth, (_req, res) => {
   res.send(scores);
