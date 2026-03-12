@@ -56,7 +56,7 @@ export function Punch() {
     <main className="m-5 space-y-5">
       <h2 className="text-4xl m-5 text-center">Punch Page</h2>
       <div className="flex flex-col items-center">
-          <div>Status: <span className="ninja-naruto">{punch?.status}</span> the clock since {punch?.time?.toLocaleString()}!</div>
+          {punch && <div>Status: <span className="ninja-naruto">{punch?.status}</span> the clock since {punch?.time?.toLocaleString()}!</div>}
           <div className="w-full max-w-sm flex justify-center m-5">
             <button className="flex-1 pt-4 pb-4 rounded-md ninja-button" onClick={handlePunch}>
               {punch?.status === "ON" ? "Clock Out" : "Clock In"}

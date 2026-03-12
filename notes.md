@@ -104,4 +104,7 @@ If I had exam notes, they would go here.
 ./deployFiles.sh -k ~/.ssh/cs260-prod.pem -h tsosiebyu.org -s startup
 
 ## Deploy Script (React)
+./deployReact.sh -k ~/.ssh/cs260-prod.pem -h tsosiebyu.org -s startup
+
+## Deploy Script (Service)
 ./deployService.sh -k ~/.ssh/cs260-prod.pem -h tsosiebyu.org -s startup
