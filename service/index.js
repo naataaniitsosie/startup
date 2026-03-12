@@ -65,6 +65,9 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
+  if (process.env.DISABLE_AUTH === 'true') {
+    return next();
+  }
   const user = await findUser('token', req.cookies[authCookieName]);
   req.user = user
   if (user) {

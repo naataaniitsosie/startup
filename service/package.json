@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "DISABLE_AUTH=true nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +15,8 @@
     "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
     "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
