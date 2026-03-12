@@ -25,13 +25,10 @@ export function History() {
           <ul className="flex flex-wrap gap-4 flex-col">
             {history.map((entry, i) => (
               <li key={i} className="border-2 p-2 rounded-md">
-                  <div>{JSON.stringify(entry)}</div>
                   <div>{entry.email}</div>
                   <div>Date: {entry.time}</div>
                   <div>Location (IP): {entry.ip}</div>
                   <div>Status: {entry.status}</div>
-                  <div>Day Total: {entry.dayTotal}</div>
-                  <div>Period Total: {entry.periodTotal}</div>
               </li>
             ))}
           </ul>

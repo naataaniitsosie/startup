@@ -112,6 +112,8 @@ apiRouter.get('/punch/history', verifyAuth, (req, res) => {
   const history = []
   const userWithPunches = Object.entries(punches)
   for (const [email, userPunches] of userWithPunches) {
+    const dayTotal = 0
+    const periodTotal = 0
     for (const p of userPunches) {
       history.push({
         email,
