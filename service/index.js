@@ -9,7 +9,7 @@ const authCookieName = 'token';
 // The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = [];
 let scores = [];
-let punches = [];
+let punches = {};
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -66,6 +66,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
   const user = await findUser('token', req.cookies[authCookieName]);
+  req.user = user
   if (user) {
     next();
   } else {
@@ -75,7 +76,19 @@ const verifyAuth = async (req, res, next) => {
 
 // PutPunch
 apiRouter.put('/punch', verifyAuth, (req, res) => {
-  punches.push(req.body)
+  const { user } = req
+  const { email } = user
+  const punchData = {
+    ...req.body,
+    ip: req.ip,
+    timestamp: new Date().toISOString(),
+  };
+
+  if (!punches[email]) {
+    // create user punches
+    punches[email] = []
+  }
+  punches[email].push(punchData);
   res.status(200).send({ success: true });
 })
 
