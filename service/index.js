@@ -8,7 +8,6 @@ const authCookieName = 'token';
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = [];
-let scores = [];
 let punches = {};
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -112,8 +111,6 @@ apiRouter.get('/punch/history', verifyAuth, (req, res) => {
   const history = []
   const userWithPunches = Object.entries(punches)
   for (const [email, userPunches] of userWithPunches) {
-    const dayTotal = 0
-    const periodTotal = 0
     for (const p of userPunches) {
       history.push({
         email,
@@ -125,16 +122,26 @@ apiRouter.get('/punch/history', verifyAuth, (req, res) => {
   res.status(200).send({ history });
 })
 
-// GetScores
-apiRouter.get('/scores', verifyAuth, (_req, res) => {
-  res.send(scores);
-});
+// Get Admin Stats
+apiRouter.get('/punch/admin', verifyAuth, (_req, res) => {
+  res.status(200).send({ stats: computeAdminStats() });
+})
 
-// SubmitScore
-apiRouter.post('/score', verifyAuth, (req, res) => {
-  scores = updateScores(req.body);
-  res.send(scores);
-});
+function computeAdminStats() {
+  return [{
+        name: "Employee 1",
+        periodTotal: 100,
+        ytdTotal: 1000,
+    }, {
+        name: "Employee 2",
+        periodTotal: 200,
+        ytdTotal: 2000,
+    }, {
+        name: "Employee 3",
+        periodTotal: 300,
+        ytdTotal: 3000,
+    }]
+}
 
 // Default error handler
 app.use(function (err, req, res, next) {
@@ -145,28 +152,6 @@ app.use(function (err, req, res, next) {
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
-
-// updateScores considers a new score for inclusion in the high scores.
-function updateScores(newScore) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-
-  if (!found) {
-    scores.push(newScore);
-  }
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
-}
 
 async function createUser(email, password) {
   const passwordHash = await bcrypt.hash(password, 10);

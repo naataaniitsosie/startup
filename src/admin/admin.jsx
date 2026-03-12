@@ -36,21 +36,21 @@ export function Admin() {
   }, [])
 
   useEffect(() => {
-    const MOCK_EMPLOYEE_TOTALS = [{
-        name: "Employee 1",
-        periodTotal: 100,
-        ytdTotal: 1000,
-    }, {
-        name: "Employee 2",
-        periodTotal: 200,
-        ytdTotal: 2000,
-    }, {
-        name: "Employee 3",
-        periodTotal: 300,
-        ytdTotal: 3000,
-    }];
+    const getAdminStats = async () => {
+        try {
+            const res = await fetch(`/api/punch/admin`)
+            if (!res.ok) {
+                throw new Error("Failed to get admin stats")
+            }
+            const { stats } = await res.json();
+            setEmployeeTotals(stats);
+        } catch(error) {
 
-    setEmployeeTotals(MOCK_EMPLOYEE_TOTALS);
+        } finally {
+
+        }
+    }
+    getAdminStats()
   }, []);
 
   return (
