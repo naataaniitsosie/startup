@@ -5,6 +5,7 @@ export function Punch() {
     time: new Date(),
     status: "ON"
   });
+  const [punchError, setPunchError] = useState()
 
   useEffect(() => {
     // fetch from the server the current punch status and time
@@ -19,7 +20,7 @@ export function Punch() {
 
   }, [])
 
-  const handlePunch = () => {
+  const handlePunch = async () => {
     let newPunch;
     if (punch.status === "ON") {
       newPunch = {
@@ -34,8 +35,15 @@ export function Punch() {
     }
     setPunch(newPunch);
 
-    // MOCK BACKEND UPDATE
-    console.log("Punch should be sent to the backend:", newPunch);
+    try {
+      const res = await fetch(`/api/punch`, { method: "PUT" })
+      if (!res.ok) {
+        throw new Error('Failed to send punch to server')
+      }
+    } catch (error) {
+      console.error(error)
+      setPunchError(error.message)
+    }
   }
   return (
     <main className="m-5 space-y-5">
@@ -47,6 +55,7 @@ export function Punch() {
               {punch.status === "ON" ? "Clock Out" : "Clock In"}
             </button>
           </div>
+          {punchError && <div className="text-red-500 mt-5">{punchError}</div>}
       </div>
     </main>
   );
