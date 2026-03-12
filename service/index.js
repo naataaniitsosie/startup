@@ -104,6 +104,22 @@ apiRouter.get('/punch/latest', verifyAuth, (req, res) => {
   res.status(404).send("not found");
 })
 
+// Get Punch History
+apiRouter.get('/punch/history', verifyAuth, (req, res) => {
+  const history = []
+  const userWithPunches = Object.entries(punches)
+  for (const [email, userPunches] of userWithPunches) {
+    for (const p of userPunches) {
+      history.push({
+        email,
+        ...p
+      })
+    }
+  }
+  
+  res.status(200).send({ history });
+})
+
 // GetScores
 apiRouter.get('/scores', verifyAuth, (_req, res) => {
   res.send(scores);
