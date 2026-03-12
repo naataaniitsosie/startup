@@ -36,7 +36,13 @@ export function Punch() {
     setPunch(newPunch);
 
     try {
-      const res = await fetch(`/api/punch`, { method: "PUT" })
+      const res = await fetch(`/api/punch`, {
+        method: "PUT",
+        body: JSON.stringify(newPunch),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
       if (!res.ok) {
         throw new Error('Failed to send punch to server')
       }
