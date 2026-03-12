@@ -6,6 +6,19 @@ export function Authenticated({ userName, onLogout }) {
     onLogout();
   }
 
+  async function logout() {
+    try {
+      await fetch(`/api/auth/logout`, {
+        method: 'delete',
+      })
+    } catch (error) {
+    }
+    finally {
+      localStorage.removeItem('userName');
+      onLogout();
+    }
+  }
+
   return (
     <>
       <div>{userName}</div>
