@@ -73,8 +73,8 @@ export function Admin() {
             {employeeTotals.map((employee, i) => (
               <li key={i} className="border-2 p-2 rounded-md">
                 <div>Name: {employee.name}</div>
-                <div>Period Total: {employee.periodTotal} hours</div>
-                <div>YTD Total: {employee.ytdTotal} hours</div>
+                <div>Period Total: {employee.periodTotal.toFixed(2)} hours</div>
+                <div>YTD Total: {employee.ytdTotal.toFixed(2)} hours</div>
               </li>
             ))}
           </ul>
