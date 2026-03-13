@@ -101,12 +101,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Found in the index.js file, I created an HTTP service that uses Express to serve the frontend and backend.
+- [x] **Static middleware for frontend** - Found in the index.js file, I used the static middleware to serve the frontend files.
+- [x] **Calls to third party endpoints** - Found in the index.js file, I used fetch to get Chuck Norris jokes.
+- [x] **Backend service endpoints** - Found in the index.js file, I created endpoints for time tracking and admin functionality.
+- [x] **Frontend calls service endpoints** - Found in the index.js file, I used fetch to call the backend service endpoints.
+- [x] **Supports registration, login, logout, and restricted endpoint** - Found in the index.js file, I created endpoints for registration, login, logout, and restricted endpoint. The frontend calls these endpoints.
 
 ## 🚀 DB deliverable
 
