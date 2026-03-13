@@ -57,7 +57,7 @@ export function Admin() {
     <main className="m-5 space-y-5">
       <h2 className="text-4xl m-5 text-center">Admin Tools</h2>
       <section>
-          <div className="text-2xl mb-2 ninja-naruto">Who is on the clock?</div>
+          <div className="text-2xl mb-2 ninja-naruto">Who is on the clock? (fake data till websocket assignment)</div>
           <ul className="flex flex-wrap gap-4">
               {currentlyOnTheClock.map((employee, i) => (
                   <li key={i} className="border-2 p-2 rounded-md">
