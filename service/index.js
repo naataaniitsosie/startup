@@ -9,7 +9,6 @@ const DB = require('./database.js');
 const authCookieName = 'token';
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
-let users = [];
 let punches = {};
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -187,7 +186,10 @@ async function createUser(email, password) {
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  if (field === 'token') {
+    return DB.getUserByToken(value);
+  }
+  return DB.getUser(value);
 }
 
 // setAuthCookie in the HTTP response
