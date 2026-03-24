@@ -86,13 +86,9 @@ apiRouter.put('/punch', verifyAuth, async (req, res) => {
     ...req.body,
     ip: req.ip,
     timestamp: new Date().toISOString(),
+    email,
   };
 
-  if (!punches[email]) {
-    // create user punches
-    punches[email] = []
-  }
-  punches[email].push(punchData);
   await DB.addPunch(punchData)
   res.status(200).send({ success: true });
 })
