@@ -106,18 +106,8 @@ apiRouter.get('/punch/latest', verifyAuth, (req, res) => {
 })
 
 // Get Punch History
-apiRouter.get('/punch/history', verifyAuth, (req, res) => {
-  const history = []
-  const userWithPunches = Object.entries(punches)
-  for (const [email, userPunches] of userWithPunches) {
-    for (const p of userPunches) {
-      history.push({
-        email,
-        ...p
-      })
-    }
-  }
-  
+apiRouter.get('/punch/history', verifyAuth, async (req, res) => {
+  const history = await DB.getPunchHistory();  
   res.status(200).send({ history: history.reverse() });
 })
 

@@ -42,13 +42,8 @@ async function addPunch(punch) {
   return punchCollection.insertOne(punch);
 }
 
-function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = punchCollection.find(query, options);
+async function getPunchHistory() {
+  const cursor = punchCollection.find();
   return cursor.toArray();
 }
 
@@ -59,5 +54,5 @@ module.exports = {
   updateUser,
   updateUserRemoveAuth,
   addPunch,
-  getHighScores,
+  getPunchHistory,
 };
