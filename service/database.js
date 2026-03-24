@@ -5,7 +5,7 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('timeninja');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('punch');
+const punchCollection = db.collection('punch');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -38,8 +38,8 @@ async function updateUserRemoveAuth(user) {
   await userCollection.updateOne({ email: user.email }, { $unset: { token: 1 } });
 }
 
-async function addScore(score) {
-  return scoreCollection.insertOne(score);
+async function addPunch(punch) {
+  return punchCollection.insertOne(punch);
 }
 
 function getHighScores() {
@@ -48,7 +48,7 @@ function getHighScores() {
     sort: { score: -1 },
     limit: 10,
   };
-  const cursor = scoreCollection.find(query, options);
+  const cursor = punchCollection.find(query, options);
   return cursor.toArray();
 }
 
@@ -58,6 +58,6 @@ module.exports = {
   addUser,
   updateUser,
   updateUserRemoveAuth,
-  addScore,
+  addPunch,
   getHighScores,
 };

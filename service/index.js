@@ -79,7 +79,7 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // PutPunch
-apiRouter.put('/punch', verifyAuth, (req, res) => {
+apiRouter.put('/punch', verifyAuth, async (req, res) => {
   const { user } = req
   const { email } = user
   const punchData = {
@@ -93,6 +93,7 @@ apiRouter.put('/punch', verifyAuth, (req, res) => {
     punches[email] = []
   }
   punches[email].push(punchData);
+  await DB.addPunch(punchData)
   res.status(200).send({ success: true });
 })
 
