@@ -43,7 +43,10 @@ async function addPunch(punch) {
 }
 
 async function getPunchHistory() {
-  const cursor = punchCollection.find();
+  const options = {
+    sort: { timestamp: -1 },
+  }
+  const cursor = punchCollection.find({}, options);
   return cursor.toArray();
 }
 

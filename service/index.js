@@ -108,7 +108,7 @@ apiRouter.get('/punch/latest', verifyAuth, (req, res) => {
 // Get Punch History
 apiRouter.get('/punch/history', verifyAuth, async (req, res) => {
   const history = await DB.getPunchHistory();  
-  res.status(200).send({ history: history.reverse() });
+  res.status(200).send({ history });
 })
 
 // Get Admin Stats
