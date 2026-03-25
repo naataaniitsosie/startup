@@ -38,7 +38,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     const user = await createUser(req.body.email, req.body.password);
 
     setAuthCookie(res, user.token);
-    res.send({ email: user.email });
+    return res.send({ email: user.email });
   }
 });
 
@@ -54,7 +54,7 @@ apiRouter.post('/auth/login', async (req, res) => {
       return;
     }
   }
-  res.status(401).send({ msg: 'Unauthorized' });
+  return res.status(401).send({ msg: 'Unauthorized' });
 });
 
 // DeleteAuth token if stored in cookie
@@ -64,7 +64,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
     await DB.updateUserRemoveAuth(user);
   }
   res.clearCookie(authCookieName);
-  res.status(204).end();
+  return res.status(204).end();
 });
 
 // Middleware to verify that the user is authorized to call an endpoint
@@ -74,7 +74,7 @@ const verifyAuth = async (req, res, next) => {
   if (user) {
     next();
   } else {
-    res.status(401).send({ msg: 'Unauthorized' });
+    return res.status(401).send({ msg: 'Unauthorized' });
   }
 };
 
@@ -90,25 +90,26 @@ apiRouter.put('/punch', verifyAuth, async (req, res) => {
   };
 
   await DB.addPunch(punchData)
-  res.status(200).send({ success: true });
+  return res.status(200).send({ success: true });
 })
 
 // GetLatestPunch
-apiRouter.get('/punch/latest', verifyAuth, (req, res) => {
+apiRouter.get('/punch/latest', verifyAuth, async (req, res) => {
   const { user } = req
   const { email } = user
 
-  if (punches[email] && punches[email].length > 0) {
-    res.status(200).send({ latestPunch: punches[email].reverse()[0] });
+  const latestPunch = await DB.getLatestPunchForUser(email);
+  if (latestPunch) {
+    return res.status(200).send({ latestPunch });
   }
 
-  res.status(404).send("not found");
+  return res.status(404).send("not found");
 })
 
 // Get Punch History
 apiRouter.get('/punch/history', verifyAuth, async (req, res) => {
   const history = await DB.getPunchHistory();  
-  res.status(200).send({ history });
+  return res.status(200).send({ history });
 })
 
 // Get Admin Stats

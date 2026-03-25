@@ -50,6 +50,14 @@ async function getPunchHistory() {
   return cursor.toArray();
 }
 
+async function getLatestPunchForUser(email) {
+  const options = {
+    sort: { timestamp: -1 },
+  }
+  const cursor = punchCollection.find({ email }, options);
+  return cursor.next();
+}
+
 module.exports = {
   getUser,
   getUserByToken,
@@ -58,4 +66,5 @@ module.exports = {
   updateUserRemoveAuth,
   addPunch,
   getPunchHistory,
+  getLatestPunchForUser
 };
