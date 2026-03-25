@@ -85,7 +85,6 @@ apiRouter.put('/punch', verifyAuth, async (req, res) => {
   const punchData = {
     ...req.body,
     ip: req.ip,
-    timestamp: new Date().toISOString(),
     email,
   };
 
@@ -113,23 +112,30 @@ apiRouter.get('/punch/history', verifyAuth, async (req, res) => {
 })
 
 // Get Admin Stats
-apiRouter.get('/punch/admin', verifyAuth, (_req, res) => {
-  res.status(200).send({ stats: computeAdminStats() });
+apiRouter.get('/punch/admin', verifyAuth, async (_req, res) => {
+  const history = await DB.getPunchHistory();
+  const stats = computeAdminStats(history);
+  return res.status(200).send({ stats });
 })
 
-// NOTE FOR GRADER:
-// It is not reasonable to have a meaningful YTD adn period totals
-// until we have a database where I can put a bunch data in there
-// so this method is just a rough implementation that returns some static data and computes totals based on the in-memory punches. In a real implementation, this would query a database and compute totals based on the relevant time periods for YTD and period totals.
-// You're going to see a lot of 0s unless you wait a long time and punch in and out a lot, but I wanted to at least show the structure of how this would work.
-function computeAdminStats() {
+function computeAdminStats(input) {
+  // get all punches for a user
+  const punchesForUser = input.reduce((acc, punch) => {
+    if (!acc[punch.email]) {
+      acc[punch.email] = []
+    }
+    acc[punch.email].push(punch)
+    return acc
+  }, {})
+
+  // for each user, compute totals
   const data = []
-  for (const [email, userPunches] of Object.entries(punches)) {
+  for (const [email, userPunches] of Object.entries(punchesForUser)) {
     let periodTotalHours = 0
     let ytdTotalHours = 0
     let previousPunch = null
     for (const punch of userPunches) {
-       if (punch.status === "OFF") {
+       if (punch.status === "OFF" && previousPunch) {
         const milliseconds = new Date(punch.time).getTime() - new Date(previousPunch.time).getTime()
         periodTotalHours += milliseconds / (1000 * 60 * 60); // convert to hours
         ytdTotalHours += milliseconds / (1000 * 60 * 60); // convert to hours
@@ -148,12 +154,12 @@ function computeAdminStats() {
 
 // Default error handler
 app.use(function (err, req, res, next) {
-  res.status(500).send({ type: err.name, message: err.message });
+  return res.status(500).send({ type: err.name, message: err.message });
 });
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' });
+  return res.sendFile('index.html', { root: 'public' });
 });
 
 async function createUser(email, password) {
