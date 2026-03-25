@@ -42,9 +42,9 @@ async function addPunch(punch) {
   return punchCollection.insertOne(punch);
 }
 
-async function getPunchHistory() {
+async function getPunchHistory(sortDirection) {
   const options = {
-    sort: { timestamp: -1 },
+    sort: { time: sortDirection || -1 },
   }
   const cursor = punchCollection.find({}, options);
   return cursor.toArray();
@@ -52,7 +52,7 @@ async function getPunchHistory() {
 
 async function getLatestPunchForUser(email) {
   const options = {
-    sort: { timestamp: -1 },
+    sort: { time: -1 },
   }
   const cursor = punchCollection.find({ email }, options);
   return cursor.next();

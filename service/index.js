@@ -113,7 +113,7 @@ apiRouter.get('/punch/history', verifyAuth, async (req, res) => {
 
 // Get Admin Stats
 apiRouter.get('/punch/admin', verifyAuth, async (_req, res) => {
-  const history = await DB.getPunchHistory();
+  const history = await DB.getPunchHistory(1);
   const stats = computeAdminStats(history);
   return res.status(200).send({ stats });
 })
@@ -130,6 +130,9 @@ function computeAdminStats(input) {
 
   // for each user, compute totals
   const data = []
+  const now = new Date();
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
   for (const [email, userPunches] of Object.entries(punchesForUser)) {
     let periodTotalHours = 0
     let ytdTotalHours = 0
@@ -137,16 +140,26 @@ function computeAdminStats(input) {
     for (const punch of userPunches) {
        if (punch.status === "OFF" && previousPunch) {
         const milliseconds = new Date(punch.time).getTime() - new Date(previousPunch.time).getTime()
-        periodTotalHours += milliseconds / (1000 * 60 * 60); // convert to hours
-        ytdTotalHours += milliseconds / (1000 * 60 * 60); // convert to hours
+
+        // monthly period
+        if (new Date(previousPunch.time) >= startOfMonth) {
+          periodTotalHours += milliseconds
+        }
+
+        // yearly period
+        if (new Date(previousPunch.time) >= startOfYear) {
+          ytdTotalHours += milliseconds
+        }
+
+        previousPunch = null
        } else if (punch.status === "ON") {
         previousPunch = punch
        }        
     }
     data.push({
       name: email,
-      periodTotal: periodTotalHours,
-      ytdTotal: ytdTotalHours,
+      periodTotal: periodTotalHours / (1000 * 60 * 60), // convert ms to hours
+      ytdTotal: ytdTotalHours / (1000 * 60 * 60) // convert ms to hours
     })
   }
   return data
