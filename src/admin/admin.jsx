@@ -5,7 +5,6 @@ import { PunchEvent, PunchNotifier } from '../punchNotifier';
 export function Admin() {
   const [currentlyOnTheClock, setCurrentlyOnTheClock] = useState([]);
   const [employeeTotals, setEmployeeTotals] = useState([]);
-  const [events, setEvent] = React.useState([]);
 
   useEffect(() => {
     PunchNotifier.addHandler(handlePunchEvent);
@@ -13,34 +12,19 @@ export function Admin() {
     return () => {
       PunchNotifier.removeHandler(handlePunchEvent);
     };
-  });
+  }, []);
 
   function handlePunchEvent(event) {
-    setEvent([...events, event]);
-  }
-  console.log(events)
-  
-  useEffect(() => {
-    const MOCK_ON_THE_CLOCK = [{
-        name: "Bob, Jones",
-        hours: 4 // live clock updates, will accumiate as time goes on
-    }, {
-        name: "Jane, Doe",
-        hours: 2 // live clock updates, will accumiate as time goes on
-    }, {
-        name: "Jim, Beam",
-        hours: 1 // live clock updates, will accumiate as time goes on
-    }, {
-        name: "Ronald, McDonald",
-        hours: 0 // live clock updates, will accumiate as time goes on
-    }];
-
-    setCurrentlyOnTheClock(MOCK_ON_THE_CLOCK);
-
-    return () => {
-        clearInterval(intervalId)
+    const { from } = event;
+    if (event.type !== PunchEvent.In && event.type !== PunchEvent.Out) {
+        return
     }
-  }, [])
+    setCurrentlyOnTheClock(prev => [...prev, {
+      username: from,
+      status: event.type,
+      time: new Date(event.value.time).toLocaleTimeString()
+    }]);
+  }
 
   useEffect(() => {
     const getAdminStats = async () => {
@@ -59,17 +43,18 @@ export function Admin() {
     }
     getAdminStats()
   }, []);
-
+  console.log(currentlyOnTheClock)
   return (
     <main className="m-5 space-y-5">
       <h2 className="text-4xl m-5 text-center">Admin Tools</h2>
       <section>
-          <div className="text-2xl mb-2 ninja-naruto">Who is on the clock? (fake data till websocket assignment)</div>
+          <div className="text-2xl mb-2 ninja-naruto">Punch in and out live updates</div>
           <ul className="flex flex-wrap gap-4">
-              {currentlyOnTheClock.map((employee, i) => (
+              {currentlyOnTheClock?.map((employee, i) => (
                   <li key={i} className="border-2 p-2 rounded-md">
-                      <div>Name: <a href="history" className="underline">{employee.name}</a></div>
-                      <div>Hours: {employee.hours} (live clock)</div>
+                      <div>Username: <a href="history" className="underline">{employee.username}</a></div>
+                      <div>Status: {employee.status}</div>
+                      <div>Time: {employee.time}</div>
                   </li>
               ))}
           </ul>

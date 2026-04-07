@@ -25,21 +25,21 @@ export function Punch() {
   const handlePunch = async () => {
     let newPunch;
     const username = localStorage.getItem('userName') || '';
+    let punchEvent;
     if (punch?.status === "ON") {
       newPunch = {
         time: new Date(),
         status: "OFF"
       };
-
-      PunchNotifier.broadcastEvent(username, PunchEvent.Out, {});
+      punchEvent = PunchEvent.Out
     } else {
       newPunch = {
         time: new Date(),
         status: "ON"
       };
-
-      PunchNotifier.broadcastEvent(username, PunchEvent.In, {});
+      punchEvent = PunchEvent.In
     }
+    PunchNotifier.broadcastEvent(username, punchEvent, { time: newPunch.time, status: newPunch.status });
     setPunch(newPunch);
 
     try {
