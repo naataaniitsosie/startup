@@ -58,5 +58,5 @@ class PunchEventNotifier {
   }
 }
 
-const PunchEventNotifier = new PunchEventNotifier();
-export { PunchEvent, PunchEventNotifier };
+const PunchNotifier = new PunchEventNotifier();
+export { PunchEvent, PunchNotifier };

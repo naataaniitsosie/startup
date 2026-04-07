@@ -1,8 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
+import { PunchEvent, PunchNotifier } from '../punchNotifier';
+
 export function Admin() {
   const [currentlyOnTheClock, setCurrentlyOnTheClock] = useState([]);
   const [employeeTotals, setEmployeeTotals] = useState([]);
+  const [events, setEvent] = React.useState([]);
+
+  useEffect(() => {
+    PunchNotifier.addHandler(handlePunchEvent);
+
+    return () => {
+      PunchNotifier.removeHandler(handlePunchEvent);
+    };
+  });
+
+  function handlePunchEvent(event) {
+    setEvent([...events, event]);
+  }
   
   useEffect(() => {
     const MOCK_ON_THE_CLOCK = [{
