@@ -119,8 +119,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - See service/peerProxy.js. This is the how the backend handles WebSocket connections.
+- [x] **Frontend makes WebSocket connection** - See punch.jsx and admin.jsx. The punch page sends data to the backend via WebSockets. The admin page receives data via websockets.
+- [x] **Data sent over WebSocket connection** - See punch.jsx. The punch page sends data to the backend via WebSockets when a user punches in or out.
+- [x] **WebSocket data displayed** - Websocket data is displayed on the admin page under the section "Punch in and out live updates". This allows managers to see punch in and out events as they happen without needing to refresh the page (websockets).
+- [x] **Application is fully functional** - All punches are displayed in realtime. I'm really proud that this is working. Way cool! 🎉 I'm going to celebrate with my bestie over waffles!
