@@ -43,7 +43,7 @@ export function Admin() {
     }
     getAdminStats()
   }, []);
-  console.log(currentlyOnTheClock)
+
   return (
     <main className="m-5 space-y-5">
       <h2 className="text-4xl m-5 text-center">Admin Tools</h2>
