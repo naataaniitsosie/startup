@@ -18,6 +18,7 @@ export function Admin() {
   function handlePunchEvent(event) {
     setEvent([...events, event]);
   }
+  console.log(events)
   
   useEffect(() => {
     const MOCK_ON_THE_CLOCK = [{
@@ -35,15 +36,6 @@ export function Admin() {
     }];
 
     setCurrentlyOnTheClock(MOCK_ON_THE_CLOCK);
-    const intervalId = setInterval(() => {
-        setCurrentlyOnTheClock(value => {
-            // rotate to mock live data updates
-            let shuffled = [...value];
-            shuffled.push(value[0]);
-            shuffled.shift();
-            return shuffled;
-        });
-    }, 1000);
 
     return () => {
         clearInterval(intervalId)

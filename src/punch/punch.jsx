@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { PunchNotifier, PunchEvent } from '../punchNotifier';
 
 export function Punch() {
   const [punch, setPunch] = useState();
@@ -23,16 +24,21 @@ export function Punch() {
 
   const handlePunch = async () => {
     let newPunch;
+    const username = localStorage.getItem('userName') || '';
     if (punch?.status === "ON") {
       newPunch = {
         time: new Date(),
         status: "OFF"
       };
+
+      PunchNotifier.broadcastEvent(username, PunchEvent.Out, {});
     } else {
       newPunch = {
         time: new Date(),
         status: "ON"
       };
+
+      PunchNotifier.broadcastEvent(username, PunchEvent.In, {});
     }
     setPunch(newPunch);
 
